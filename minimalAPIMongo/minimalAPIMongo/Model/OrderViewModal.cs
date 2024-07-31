@@ -11,13 +11,13 @@ namespace minimalAPIMongo.Model
         [BsonId]
         //Define o nome do compo no MongoDb como "_id" e o tipo como "ObjectId"
         [BsonElement("_id"), BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         [BsonElement("date")]
         public DateTime Date { get; set; }
 
-        [BsonElement("stats")]
-        public string Status { get; set; }
+        [BsonElement("status")]
+        public string? Status { get; set; }
 
 
 
@@ -25,20 +25,20 @@ namespace minimalAPIMongo.Model
 
         //- Referência para que eu consiga cadastrar um pedido com os produto
         [BsonElement("productId")]
-        public List<string> ProductId { get; set; }
+        public List<string>?ProductId { get; set; }
 
         //- Referência para que quando eu list eos pedidos, venham os dados de cada produto(lista)
 
         [BsonIgnore]
         [JsonIgnore]
-        public List<Product> Product { get; set; }
+        public List<Product>?Product { get; set; }
 
         //Referência ao cliente que está fazendo o pedido
 
         //- Refência para que eu consiga cadastrar um pedido do cliente
 
         [BsonElement("clientId")]
-        public string clientId { get; set; }
+        public string? clientId { get; set; }
 
 
 
@@ -46,6 +46,6 @@ namespace minimalAPIMongo.Model
 
         [BsonIgnore]
         [JsonIgnore]
-        public Client Client { get; set; }
+        public Client? Client { get; set; }
     }
 }

@@ -44,7 +44,7 @@ namespace minimalAPIMongo.Controller
                 var client = await _client.Find(c  => c.Id == id).FirstOrDefaultAsync();
                 return client is not null ? Ok(client) : NotFound();
             }
-            catch (Exception ex)r
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
